@@ -5,7 +5,7 @@ export const PokeList = () => {
 
   useEffect(() => {
     async function getPokemon() {
-      const url = "https://pokeapi.co/api/v2/pokemon/";
+      const url = "https://pokeapi.co/api/v2/pokemon/?offset=10&limit=10";
       const response = await fetch(url);
       const json = await response.json();
 
