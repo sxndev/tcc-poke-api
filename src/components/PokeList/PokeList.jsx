@@ -40,7 +40,7 @@ export const PokeList = () => {
 
   const StyledPokeList = styled.ul`
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       padding: 20px;
       gap: 30px;
   `;

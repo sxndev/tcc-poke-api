@@ -5,13 +5,13 @@ const StyledPokeCard = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: solid 2px white;
   width: 100%;
+  min-height:280px;
   height: 100%;
   color: var(--light-color);
-  border-radius: 10px;
-  position: relative;
-  background-color: var(--soft-bg-color);
+  border-radius: 20px;
+  position: relative; 
+  background-color: var(--light-color); 
   text-align: center;
   transition:
     border ease-in-out 0.3s,
@@ -20,6 +20,12 @@ const StyledPokeCard = styled.div`
 
   cursor: pointer;
 
+  .poke-info {
+    background-color: ${({ type }) => `var(--${type}-type)`};
+    color: var(--light-color);
+    height:100%;
+  }
+  
   img {
     padding:20px;
     width: 100%;  
@@ -29,18 +35,15 @@ const StyledPokeCard = styled.div`
   }
 
   .poke-info{
-    background-color:var(--light-color);
-    color:black;
     width:100%;  
     height:30%;
+    border-radius:0px 0px 20px 20px; 
   }
   h2 {
     text-transform: uppercase;
-    font-family:
-      "Segoe UI",
-      sans serif;
-
-      font-size:clamp(25px,4vw, 40px);
+    font-family: "Bebas Neue","Segoe UI", sans serif;
+      font-size:clamp(16px,5vw, 40px);
+      letter-spacing:3px;
   }
 
   h3{
@@ -52,24 +55,21 @@ const StyledPokeCard = styled.div`
     top:10px;
     font-weight:bold;
     font-size:clamp(20px, 1vw, 40px);
-    color:white;
+    color:var(--soft-color); 
   }
 
 
   &:hover {
     transform: translateY(-5px);
-
-    img {
-      transform: scale(1.1);
     }
   }
 `;
 
 export const PokeCard = ({ name, img, type, id }) => {
   return (
-    <StyledPokeCard>
+    <StyledPokeCard type={type}>
       <img src={img} alt={`Imagem do ${name}`} />
-      <div className="poke-info">
+      <div className={`poke-info ` } >
         <h2>{name}</h2>
         <h3>{type}</h3>
         <p>ID:{id}</p>
