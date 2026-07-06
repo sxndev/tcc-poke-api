@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
-import "./pokeList.css";
 
- async function getPokemon(offset) {
-    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
-    const response = await fetch(url);
-    const json = await response.json();
+import styled from "styled-components";
 
-    const pokemons = await Promise.all(
-      json.results.map(async (pokemon) => {
-        const response = await fetch(pokemon.url);
-        return response.json();
-      }),
-    );
+async function getPokemon(offset) {
+  const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
+  const response = await fetch(url);
+  const json = await response.json();
 
-    return pokemons;
-  }
+  const pokemons = await Promise.all(
+    json.results.map(async (pokemon) => {
+      const response = await fetch(pokemon.url);
+      return response.json();
+    }),
+  );
 
+  return pokemons;
+}
 
 export const PokeList = () => {
   const [pokeList, setPokelist] = useState([]);
   const [offset, setOffset] = useState(0);
-
 
   useEffect(() => {
     async function firstLoad() {
@@ -39,20 +38,45 @@ export const PokeList = () => {
     setPokelist((prev) => [...prev, ...newPokemons]);
   }
 
+  const StyledPokeList = styled.ul`
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: 20px;
+      gap: 30px;
+  `;
+
+  const StyledSection = styled.section`
+      display:flex;
+      justify-content:center;
+      aligm-items:center;
+      flex-direction:column;
+      background-color: var(--bg-color);
+      text-align:center;
+      padding:30px;
+
+      #title{
+      color:var(--light-color);
+      font-size:clamp(25px, 5vw, 50px);
+      }
+
+  `
   return (
-    <>
-      <ul className="pokemon-list">
+    <StyledSection>
+    <h2 id="title">Lista de Pokemons</h2>
+      <StyledPokeList>
         {pokeList.map((poke) => (
-          <PokeCard
-            key={poke.id}
-            img={poke.sprites.front_default}
-            name={poke.name}
-            type={poke.types[0].type.name}
-            id={poke.id}
-          />
+          <li>
+            <PokeCard
+              key={poke.id}
+              img={poke.sprites.other['official-artwork'].front_default}
+              name={poke.name}
+              type={poke.types[0].type.name}
+              id={poke.id}
+            />
+          </li>
         ))}
-      </ul>
+      </StyledPokeList>
       <Button text={"Buscar mais Pokemons"} onClick={getMorePokemons} />
-    </>
+    </StyledSection>
   );
 };
