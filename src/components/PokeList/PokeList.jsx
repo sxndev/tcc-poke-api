@@ -19,6 +19,36 @@ async function getPokemon(offset) {
   return pokemons;
 }
 
+const StyledPokeList = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items:center;
+    padding: 20px;
+    gap: 20px;
+    width:100%;  
+    height:100%;
+`; 
+   
+const StyledSection = styled.section`
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background-color: var(--bg-color);
+    text-align:center;
+    padding:30px;
+    width:100%;
+    height:100%;
+    min-height:100vh; 
+
+    #title{
+    color:var(--light-color);
+    font-size:clamp(25px, 5vw, 50px);
+    }
+
+`
+
+
 export const PokeList = () => {
   const [pokeList, setPokelist] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -36,36 +66,15 @@ export const PokeList = () => {
     const newPokemons = await getPokemon(offset);
     setOffset((prev) => prev + 10);
     setPokelist((prev) => [...prev, ...newPokemons]);
+    console.log(pokeList)
   }
 
-  const StyledPokeList = styled.ul`
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      padding: 20px;
-      gap: 30px;
-  `;
-
-  const StyledSection = styled.section`
-      display:flex;
-      justify-content:center;
-      aligm-items:center;
-      flex-direction:column;
-      background-color: var(--bg-color);
-      text-align:center;
-      padding:30px;
-
-      #title{
-      color:var(--light-color);
-      font-size:clamp(25px, 5vw, 50px);
-      }
-
-  `
   return (
     <StyledSection>
     <h2 id="title">Lista de Pokemons</h2>
       <StyledPokeList>
         {pokeList.map((poke) => (
-          <li>
+          <li key={poke.id}>
             <PokeCard
               key={poke.id}
               img={poke.sprites.other['official-artwork'].front_default}

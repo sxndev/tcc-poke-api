@@ -5,14 +5,14 @@ const StyledPokeCard = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  min-height:280px;
-  height: 100%;
+  width: 200px;
+  max-width:250px;
+  min-height:200px;
+  height: 315px;
   color: var(--light-color);
   border-radius: 20px;
   position: relative; 
   background-color: var(--light-color); 
-  text-align: center;
   transition:
     border ease-in-out 0.3s,
     box-shadow ease-in-out 0.3s,
@@ -20,47 +20,50 @@ const StyledPokeCard = styled.div`
 
   cursor: pointer;
 
-  .poke-info {
-    background-color: ${({ type }) => `var(--${type}-type)`};
-    color: var(--light-color);
-    height:100%;
-  }
   
   img {
     padding:20px;
     width: 100%;  
-    height: 70%;
+    height: 100%;
     object-fit: contain;
-    transition: transform ease-in-out 0.5s;
   }
+  .poke-info {
+    display:flex;
+    flex-direction:column; 
+    align-items:center:
+    justify-content:center; 
 
-  .poke-info{
-    width:100%;  
-    height:30%;
+    background-color: ${({ type }) => `var(--${type}-type)`};
+    color: ${({ type }) => `var(--${type}-type-dark)`};
+    height:100%;
+    max-height:100%; 
+    width:100%;
+    text-align:center;
     border-radius:0px 0px 20px 20px; 
   }
   h2 {
     text-transform: uppercase;
     font-family: "Bebas Neue","Segoe UI", sans serif;
-      font-size:clamp(16px,5vw, 40px);
+      font-size:clamp(20px,3vw, 40px);   
       letter-spacing:3px;
   }
 
   h3{
     font-style:italic;
+    font-size:clamp(10px,2vw, 20px);  
   }
   p{
     position:absolute;
     right:10px;
-    top:10px;
+    top:10px; 
     font-weight:bold;
     font-size:clamp(20px, 1vw, 40px);
     color:var(--soft-color); 
   }
 
-
   &:hover {
     transform: translateY(-5px);
+     box-shadow: 5px 10px 2px var(--soft-bg-color);
     }
   }
 `;
@@ -69,7 +72,7 @@ export const PokeCard = ({ name, img, type, id }) => {
   return (
     <StyledPokeCard type={type}>
       <img src={img} alt={`Imagem do ${name}`} />
-      <div className={`poke-info ` } >
+      <div className={`poke-info `}>
         <h2>{name}</h2>
         <h3>{type}</h3>
         <p>ID:{id}</p>

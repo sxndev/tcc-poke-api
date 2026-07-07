@@ -10,13 +10,10 @@ export const GlobalStyle = createGlobalStyle`
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
   overflow-x: hidden;
+  width:100vw;
+  max-width:100vw;
 }
-
 
 img{
   display: block;
