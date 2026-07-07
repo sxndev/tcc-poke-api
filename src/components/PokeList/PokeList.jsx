@@ -40,6 +40,7 @@ const StyledSection = styled.section`
     width:100%;
     height:100%;
     min-height:100vh; 
+    padding-top:10vh;
 
     #title{
     color:var(--light-color);
