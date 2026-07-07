@@ -11,6 +11,8 @@ const StyledHeader = styled.header`
   color: var(--light-color);
   position:fixed;
   width:100%;
+  height:10vh;
+  border-bottom:solid 5px var(--light-color);
   top:0;
   z-index:100;
 
