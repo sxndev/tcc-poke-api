@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 async function getPokemon(offset) {
   try {
-
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
     const response = await fetch(url);
 
@@ -19,13 +18,17 @@ async function getPokemon(offset) {
     const pokemons = await Promise.all(
       json.results.map(async (pokemon) => {
         const response = await fetch(pokemon.url);
+        
+        if(!response.ok){
+          throw new Error(`Erro ao buscar ${pokemon.name}`)
+        }
+
         return response.json();
       }))
   
             return pokemons;
 
 } catch (err){
-    alert('ocorreu um erro ao buscar os pokemons :(')
     console.log(err)
 }}
 
