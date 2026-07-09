@@ -40,7 +40,7 @@ const StyledSection = styled.section`
     width:100%;
     height:100%;
     min-height:100vh; 
-    padding-top:10vh;
+    padding-top:15vh;
 
     #title{
     color:var(--light-color);
@@ -48,7 +48,6 @@ const StyledSection = styled.section`
     }
 
 `
-
 
 export const PokeList = () => {
   const [pokeList, setPokelist] = useState([]);
@@ -84,7 +83,7 @@ export const PokeList = () => {
               id={poke.id}
             />
           </li>
-        ))}
+        ))} 
       </StyledPokeList>
       <Button text={"Buscar mais Pokemons"} onClick={getMorePokemons} />
     </StyledSection>

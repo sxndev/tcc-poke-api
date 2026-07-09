@@ -11,17 +11,18 @@ const StyledHeader = styled.header`
   color: var(--light-color);
   position:fixed;
   width:100%;
-  height:10vh;
+  height:15vh;
   border-bottom:solid 5px var(--light-color);
   top:0;
   z-index:100;
-
+  font-size:clamp(10px, 2vw, 16px); 
+  
   .logo {
     display: flex;
     align-items: center;
     gap: 10px;
     font-family: "Bebas Neue", sans-serif;
-  }
+    }
 
   nav ul {
     display: flex;
@@ -29,10 +30,13 @@ const StyledHeader = styled.header`
   }
 
   img {
-    width: 40px;
+    min-width: 20px;
+    width:5vw; 
+    max-width:40px;
     object-fit: contain;
   }
 `;
+
 export const Header = () => {
   // esboço do header, ainda não está pronto
   return (

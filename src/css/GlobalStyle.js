@@ -41,9 +41,5 @@ ul, ol {
 a {
   color: inherit;
   text-decoration: none;
-}
+}`;
 
-
-
-  
-`;

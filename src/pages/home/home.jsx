@@ -1,5 +1,4 @@
 import { Header } from "../../components/Header/Header";
-// import { PokeList } from "../../components/pokeList/pokeList";
 import styled from "styled-components";
 import PokeballImg from "../../assets/pokeball.png";
 import "../../css/animation.css";
