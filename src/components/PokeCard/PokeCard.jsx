@@ -44,13 +44,14 @@ const StyledPokeCard = styled.div`
   h2 {
     text-transform: uppercase;
     font-family: "Bebas Neue","Segoe UI", sans serif;
-      font-size:clamp(20px,3vw, 40px);   
+      font-size:clamp(30px,3vw, 40px);   
       letter-spacing:3px;
   }
 
   h3{
     font-style:italic;
-    font-size:clamp(10px,2vw, 20px);  
+    font-size:clamp(20px,2vw, 20px);  
+    color:var(--light-color);
   }
   p{
     position:absolute;

@@ -5,19 +5,30 @@ import { Button } from "../Button/Button";
 import styled from "styled-components";
 
 async function getPokemon(offset) {
-  const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
-  const response = await fetch(url);
-  const json = await response.json();
+  try {
 
-  const pokemons = await Promise.all(
-    json.results.map(async (pokemon) => {
-      const response = await fetch(pokemon.url);
-      return response.json();
-    }),
-  );
+    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
+    const response = await fetch(url);
 
-  return pokemons;
-}
+    
+    if(!response.ok) {
+      throw new Error("Ocorreu um erro ao buscar os pokemons")
+    }
+    
+    const json = await response.json();
+    
+    const pokemons = await Promise.all(
+      json.results.map(async (pokemon) => {
+        const response = await fetch(pokemon.url);
+        return response.json();
+      }))
+  
+            return pokemons;
+
+} catch (err){
+    alert('ocorreu um erro ao buscar os pokemons :(')
+    console.log(err)
+}}
 
 const StyledPokeList = styled.ul`
     display: grid;
