@@ -19,9 +19,9 @@ const StyledHeader = styled.header`
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     & h1 {
-      font-size: clamp(16px, 3vw, 50px);
+      font-size: clamp(12px, 3vw, 50px);
     }
   }
 
