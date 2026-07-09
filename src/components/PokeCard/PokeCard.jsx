@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import pokeballImg from '../../assets/pokeball.png'
 
 const StyledPokeCard = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ const StyledPokeCard = styled.div`
   .poke-info {
     display:flex;
     flex-direction:column; 
-    align-items:center:
+    align-items:center;
     justify-content:center; 
 
     background-color: ${({ type }) => `var(--${type}-type)`};
@@ -72,7 +73,13 @@ const StyledPokeCard = styled.div`
 export const PokeCard = ({ name, img, type, id }) => {
   return (
     <StyledPokeCard type={type}>
-      <img src={img} alt={`Imagem do ${name}`} />
+      <img 
+        src={img} 
+        alt={`Imagem do ${name}`} 
+        onError={(e) => {
+          e.target.onerror = null
+          e.target.src = pokeballImg
+      }}/>
       <div className={`poke-info `}>
         <h2>{name}</h2>
         <h3>{type}</h3>

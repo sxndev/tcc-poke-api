@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
-
 import styled from "styled-components";
 
 async function getPokemon(offset) {
