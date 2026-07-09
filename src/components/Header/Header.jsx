@@ -9,20 +9,21 @@ const StyledHeader = styled.header`
   padding: 10px 30px;
   background-color: var(--accent-color);
   color: var(--light-color);
-  position:fixed;
-  width:100%;
-  height:15vh;
-  border-bottom:solid 5px var(--light-color);
-  top:0;
-  z-index:100;
-  font-size:clamp(10px, 2vw, 16px); 
-  
+  position: fixed;
+  width: 100%;
+  height: 15vh;
+  border-bottom: solid 5px var(--light-color);
+  top: 0;
+  z-index: 100;
+
   .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: "Bebas Neue", sans-serif;
+    & h1 {
+      font-size: clamp(16px, 3vw, 50px);
     }
+  }
 
   nav ul {
     display: flex;
@@ -31,9 +32,32 @@ const StyledHeader = styled.header`
 
   img {
     min-width: 20px;
-    width:5vw; 
-    max-width:40px;
+    width: 5vw;
+    max-width: 40px;
     object-fit: contain;
+  }
+
+  li { 
+    position: relative;
+  }
+  li:hover::before{
+    width:100%;
+    left:0%;
+  }
+
+  li::before {
+    content: ""; 
+    position:absolute;
+    z-index:-10;
+    left:50%;
+    bottom:-2px;  
+    height: 5px; 
+    border-radius:20px; 
+    background-color: white;
+    width: 0%;
+    transition: 
+      width ease 0.5s, 
+      left ease 0.5s;
   }
 `;
 
@@ -42,13 +66,21 @@ export const Header = () => {
   return (
     <StyledHeader>
       <div className="logo">
-        <h1>React + PokeAPI</h1>
+        <h1>TCC de Frontend</h1>
         <img src={PokeballImg} alt="Imagem da Pokebola" />
       </div>
       <nav>
         <ul>
-          <Link to={"/"}> Home</Link>
-          <Link to={"/pokemons"}>Pokemons</Link>
+          <li className="nav-link">
+          <Link to={"/"} >
+            Home
+          </Link>
+          </li>
+          <li className="nav-link">
+          <Link to={"/pokemons"} >
+            Pokemons
+          </Link>
+          </li>
         </ul>
       </nav>
     </StyledHeader>

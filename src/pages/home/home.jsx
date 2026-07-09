@@ -12,27 +12,33 @@ const StyledMain = styled.main`
   text-align: center;
   position: relative;
   width: 100%;
-  top:10vh;
+  top: 10vh;
+  overflow-x: hidden;
+  padding-top:10vh; 
 
-  h1 {
-    font-size: clamp(30px, 6vw, 100px);
-    z-index: ;
+  h2 {
+    font-size: clamp(50px, 8vw, 100px);   
+    z-index:;
     padding: 30px;
     border-radius: 30px;
+    z-index: 10;
+    font-family: "Bebas Neue", "Poppins", sans-serif;
   }
-
-  h1 span {
-    color: var(--electric-type);
+ 
+  h2 span {
     font-style: italic;
-  }
-`;
+  }`;
 
 const StyledPokeballImg = styled.img`
-  width: 50px;
+  min-width: 20px;
+  width: 5vw;
+  max-width: 40px;
+  object-fit: contain;
   position: absolute;
   z-index: 0;
-  top:20%;
-  right:20%;
+  top: 20%;
+  right: 20%;
+  transition: width ease-out 1s;
 
   &.animate-pokeball:nth-child(3) {
     top: 80%;
@@ -86,7 +92,7 @@ const StyledPokeballImg = styled.img`
   }
 
   &.animate-pokeball:nth-child(10) {
-    top: 40%; 
+    top: 40%;
     left: 35%;
     animation-duration: 7s;
     animation-delay: -1s;
@@ -107,9 +113,9 @@ const StyledPokeballImg = styled.img`
 const MainSection = () => {
   return (
     <StyledMain>
-        <h1>
-          React & Libs <br /> + <br /> <span>PokeAPI</span>
-        </h1>
+      <h2>
+        React & Libs <br /> + <br /> <span>PokeAPI</span>
+      </h2>
 
       <StyledPokeballImg
         src={PokeballImg}
