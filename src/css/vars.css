@@ -45,4 +45,8 @@
   --dark-type-dark: #2C221A;
   --steel-type-dark: #55556D;
   --fairy-type-dark: #A63F62;
+
+  --font-1:"Poppins", sans-serif;
+  --font-2:"Bebas Neue", "Poppins", sans-serif;
+  --font-3:"DynaPuff", "Poppins", sans-serif; 
 }

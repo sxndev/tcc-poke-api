@@ -110,11 +110,16 @@ const StyledPokeballImg = styled.img`
     animation-delay: -1s;
   }
 `;
+
+const StyledSpan = styled.span`
+  font-family:var(--font-3);
+`
+
 const MainSection = () => {
   return (
     <StyledMain>
       <h2>
-        React & Libs <br /> + <br /> <span>PokeAPI</span>
+        React & Libs <br /> + <br /> <StyledSpan>PokeAPI</StyledSpan>
       </h2>
 
       <StyledPokeballImg
