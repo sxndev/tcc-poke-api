@@ -4,35 +4,6 @@ import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
 import styled from "styled-components";
 
-// // essa pokelist é um componente Statefull pois trabalha com estado (useState) e também é responsável pela comunicação com a api PokeAPI
-// async function getPokemonlist(offset) {
-//   try {
-//     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
-//     const response = await fetch(url);
-
-//     if (!response.ok) {
-//       throw new Error("Ocorreu um erro ao buscar os pokemons");
-//     }
-
-//     const json = await response.json();
-
-//     const pokemons = await Promise.all(
-//       json.results.map(async (pokemon) => {
-//         const response = await fetch(pokemon.url);
-
-//         if (!response.ok) {
-//           throw new Error(`Erro ao buscar ${pokemon.name}`);
-//         }
-
-//         return response.json();
-//       }),
-//     );
-
-//     return pokemons;
-//   } catch (err) {
-//     console.log(err);
-//   } 
-// }
 
 const StyledPokeList = styled.ul`
   display: grid;
@@ -91,7 +62,7 @@ export const PokeList = () => {
           <li key={poke.id}>
             <PokeCard
               key={poke.id}
-              img={poke.sprites.other["official-artwork"].front_default}
+              img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
               name={poke.name}
               type={poke.types[0].type.name}
               id={poke.id}

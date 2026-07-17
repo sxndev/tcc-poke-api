@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokeballImg from '../../assets/pokeball.png'
+import pokeballImg from "../../assets/pokeball.png";
 
 const StyledPokeCard = styled.div`
   display: flex;
@@ -28,20 +28,7 @@ const StyledPokeCard = styled.div`
     height: 100%;
     object-fit: contain;
   }
-  .poke-info {
-    display:flex;
-    flex-direction:column; 
-    align-items:center;
-    justify-content:center; 
-
-    background-color: ${({ type }) => `var(--${type}-type)`};
-    color: ${({ type }) => `var(--${type}-type-dark)`};
-    height:100%;
-    max-height:100%; 
-    width:100%;
-    text-align:center;
-    border-radius:0px 0px 20px 20px; 
-  }
+  
   h2 {
     text-transform: uppercase;
     font-family: "Bebas Neue","Segoe UI", sans serif;
@@ -70,23 +57,45 @@ const StyledPokeCard = styled.div`
   }
 `;
 
+const StyledPokeInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    background-color: ${({ type }) => `var(--${type}-type)`};
+    color: ${({ type }) => `var(--${type}-type-dark)`};
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    text-align: center;
+    border-radius: 0px 0px 20px 20px; 
+  
+`;
+const PokeInfoContainer = ({type, children}) => {
+  return <StyledPokeInfo type={type}> {children} </StyledPokeInfo>
 
-export const PokeCard = ({ name, img, type, id }) => {
+}
+
+export const PokeCard = ({ img, name, type, id }) => {
   return (
     <StyledPokeCard type={type}>
-      <img 
-        src={img} 
-        alt={`Imagem do ${name}`} 
+      <img
+        src={img}
+        alt={`Imagem do ${name}`}
         onError={(e) => {
-          e.target.onerror = null
-          e.target.src = pokeballImg
-      }}/>
-      <div className={`poke-info `}>
+          e.target.onerror = null;
+          e.target.src = pokeballImg;
+        }}
+      /> 
+
+      <PokeInfoContainer type={type}>
         <h2>{name}</h2>
         <h3>{type}</h3>
         <p>ID:{id}</p>
-      </div>
+      </PokeInfoContainer>
+   
     </StyledPokeCard>
   );
 };
+ 
