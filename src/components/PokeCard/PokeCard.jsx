@@ -36,12 +36,13 @@ const StyledPokeCard = styled.div`
       letter-spacing:3px;
   }
 
-  h3{
+  h3 {
     font-style:italic;
     font-size:clamp(20px,2vw, 20px);  
     color:var(--light-color);
   }
-  p{
+
+  p {
     position:absolute;
     right:10px;
     top:10px; 

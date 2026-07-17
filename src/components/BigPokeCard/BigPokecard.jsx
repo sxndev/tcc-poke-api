@@ -4,33 +4,66 @@ import pokeballImg from "../../assets/pokeball.png";
 const StyledBigCard = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${({ type }) => `var(--${type}-type)`};
-  color: ${({ type }) => `var(--${type}-type-dark)`};
+  height: 100%;
+  max-height: 40vh;
+  max-width: 50vw;
+  color: var(--soft-bg-color);
+  position: relative;
+  border-radius: 20px 20px 0px 0px;
+
+  img {
+    border-radius: 20px 20px 0px 0px;
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    max-height:400px;
+    background-color: ${({ type }) => `var(--${type}-type)`};
+  }
+
+  #id {
+    font-family: var(--font-2);
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color:white;
+  }
 `;
 
 const StyledPokeInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow:10px 10px 10px;
+  
+  #name{
+    font-family:var(--font-2);
+    font-size:clamp(30px,3vw, 40px);   
+    letter-spacing:3px;
+  }
 `;
 
-export const BigPokeCard = ({ img, name, movesList, abilities, type }) => {
-  return (
-    <StyledBigCard type={type}>
-      <img
-        src={img}
-        alt={`Imagem do ${name}`}
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = pokeballImg;
-        }}
-      />
 
-      <StyledPokeInfo>
-        <h2>{name}</h2>
-        <ul>{movesList}</ul>
-        <ul>{abilities}</ul>
-      </StyledPokeInfo>
-    </StyledBigCard>
+export const BigPokeCard = ({ img, name, type, id }) => {
+  return (
+      <StyledBigCard type={type}>
+        <img
+          src={img}
+          alt={`Imagem do ${name}`}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = pokeballImg;
+          }}
+        />
+
+        <StyledPokeInfo>
+          <h2 id="name">{name}</h2>
+          <h3 id="type">{type}</h3>
+          <p id="id">id:{id}</p>
+        </StyledPokeInfo>
+
+      </StyledBigCard>
   );
 };
