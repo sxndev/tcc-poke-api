@@ -1,37 +1,38 @@
 import { useState, useEffect } from "react";
+import { getPokemonlist } from "../../services/api";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
 import styled from "styled-components";
 
-// essa pokelist é um componente Statefull pois trabalha com estado (useState) e também é responsável pela comunicação com a api PokeAPI
-async function getPokemon(offset) {
-  try {
-    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
-    const response = await fetch(url);
+// // essa pokelist é um componente Statefull pois trabalha com estado (useState) e também é responsável pela comunicação com a api PokeAPI
+// async function getPokemonlist(offset) {
+//   try {
+//     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`;
+//     const response = await fetch(url);
 
-    if (!response.ok) {
-      throw new Error("Ocorreu um erro ao buscar os pokemons");
-    }
+//     if (!response.ok) {
+//       throw new Error("Ocorreu um erro ao buscar os pokemons");
+//     }
 
-    const json = await response.json();
+//     const json = await response.json();
 
-    const pokemons = await Promise.all(
-      json.results.map(async (pokemon) => {
-        const response = await fetch(pokemon.url);
+//     const pokemons = await Promise.all(
+//       json.results.map(async (pokemon) => {
+//         const response = await fetch(pokemon.url);
 
-        if (!response.ok) {
-          throw new Error(`Erro ao buscar ${pokemon.name}`);
-        }
+//         if (!response.ok) {
+//           throw new Error(`Erro ao buscar ${pokemon.name}`);
+//         }
 
-        return response.json();
-      }),
-    );
+//         return response.json();
+//       }),
+//     );
 
-    return pokemons;
-  } catch (err) {
-    console.log(err);
-  }
-}
+//     return pokemons;
+//   } catch (err) {
+//     console.log(err);
+//   } 
+// }
 
 const StyledPokeList = styled.ul`
   display: grid;
@@ -68,7 +69,7 @@ export const PokeList = () => {
 
   useEffect(() => {
     async function firstLoad() {
-      const pokemons = await getPokemon(0);
+      const pokemons = await getPokemonlist(0);
       setPokelist(pokemons);
       setOffset(10);
     }
@@ -76,7 +77,7 @@ export const PokeList = () => {
   }, []);
 
   async function getMorePokemons() {
-    const newPokemons = await getPokemon(offset);
+    const newPokemons = await getPokemonlist(offset);
     setOffset((prev) => prev + 10);
     setPokelist((prev) => [...prev, ...newPokemons]);
     console.log(pokeList);
@@ -97,7 +98,7 @@ export const PokeList = () => {
             />
           </li>
         ))}
-      </StyledPokeList>
+        </StyledPokeList>
       <Button text={"Buscar mais Pokemons"} onClick={getMorePokemons} />
     </StyledSection>
   );

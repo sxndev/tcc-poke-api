@@ -70,6 +70,8 @@ const StyledPokeCard = styled.div`
   }
 `;
 
+
+
 export const PokeCard = ({ name, img, type, id }) => {
   return (
     <StyledPokeCard type={type}>

@@ -20,6 +20,12 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledButtonContainer = styled.div`
+  display:flex;
+  align-items:center;
+  gap:10px;  
+`;
+
 const StyledClearBtn = styled.button`
   display: flex;
   justify-content: center;
@@ -31,14 +37,7 @@ const StyledClearBtn = styled.button`
   font-size: 20px;
   border-radius: 100%;
   font-family: var(--font-3);
-  background-color: var(--accent-color);
-
-  transition: transform 0.5s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-`;
+  background-color: var(--accent-color);`;
 
 const StyledDiv = styled.div`
   width: 80%;
@@ -47,9 +46,22 @@ const StyledDiv = styled.div`
   justify-content: space-around;
 `;
 
+const StyledSearchBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 25px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px; 
+  font-family: var(--font-3);
+  background-color: var(--accent-color);`;
+
 export const Searchbar = () => {
   const [search, setSearch] = useState("");
-  
+
   return (
     <StyledDiv>
       <StyledInput
@@ -59,9 +71,13 @@ export const Searchbar = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <StyledClearBtn id="clear-btn" onClick={() => setSearch("")}>
-        X
-      </StyledClearBtn>
+
+      <StyledButtonContainer>
+
+        <StyledSearchBtn>Buscar</StyledSearchBtn>
+        <StyledClearBtn id="clear-btn" onClick={() => setSearch("")}>X</StyledClearBtn>
+
+      </StyledButtonContainer>
     </StyledDiv>
   );
 };
