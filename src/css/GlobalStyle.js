@@ -21,7 +21,6 @@ img{
   height: auto;
 }
 
-/* 6. Formulários herdam a tipografia do app (não a do navegador) */
 input,
 button,
 textarea,
