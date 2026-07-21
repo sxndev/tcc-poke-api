@@ -14,7 +14,8 @@ const StyledInput = styled.input`
   cursor: pointer;
   color: white;
   font-size: 20px;
-
+  font-family: var(--font-3);
+  
   &::placeholder {
     color: white;
   }
@@ -37,13 +38,22 @@ const StyledClearBtn = styled.button`
   font-size: 20px;
   border-radius: 100%;
   font-family: var(--font-3);
-  background-color: var(--accent-color);`;
+  background-color: var(--accent-color);
+  
+  transition:background-color ease 0.7s, color ease 0.7s;
+
+  &:hover {
+    background-color:var(--light-color);
+    color:var(--accent-color);
+  }
+  `;
 
 const StyledDiv = styled.div`
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap:10px; 
 `;
 
 const StyledSearchBtn = styled.button`
@@ -57,7 +67,14 @@ const StyledSearchBtn = styled.button`
   font-size: 20px;
   border-radius: 10px; 
   font-family: var(--font-3);
-  background-color: var(--accent-color);`;
+  background-color: var(--accent-color);
+  transition:background-color ease 0.7s, color ease 0.7s;
+
+  &:hover {
+    background-color:var(--light-color);
+    color:var(--accent-color);
+  }
+  `;
 
 export const Searchbar = () => {
   const [search, setSearch] = useState("");

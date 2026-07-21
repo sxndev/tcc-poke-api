@@ -7,10 +7,10 @@ import { BigPokeCard } from "../../components/BigPokeCard/BigPokecard";
 
 const StyledContainer = styled.section`
   display:flex;
+  justify-content:space-between;
   height:100vh;
   width:100vw;
-  justify-content:center;
-  padding-top:10vh;
+  padding:15vh;
   background-color:var(--bg-color);
 `;
 

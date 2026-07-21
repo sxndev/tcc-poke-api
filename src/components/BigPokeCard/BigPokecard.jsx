@@ -5,16 +5,17 @@ const StyledBigCard = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-height: 40vh;
-  max-width: 50vw;
+  max-height: 50vh;
+  max-width: 40vw;
   color: var(--soft-bg-color);
   position: relative;
   border-radius: 20px 20px 0px 0px;
 
   img {
     border-radius: 20px 20px 0px 0px;
-    padding: 50px;
+    padding: 30px; 
     width: 100%;
+    object-fit:contain;
     height: 100%;
     max-height:400px;
     background-color: ${({ type }) => `var(--${type}-type)`};
@@ -37,7 +38,10 @@ const StyledPokeInfo = styled.div`
   align-items: center;
   width: 100%;
   box-shadow:10px 10px 10px;
-  
+  background-color:white; 
+  height:100px;
+  border-radius:0px 0px 20px 20px;
+
   #name{
     font-family:var(--font-2);
     font-size:clamp(30px,3vw, 40px);   
