@@ -66,21 +66,21 @@ export const Header = () => {
   return (
     <StyledHeader>
       <div className="logo">
-        <h1>TCC de Frontend</h1>
+        <h1>PokeWeb</h1>
         <img src={PokeballImg} alt="Imagem da Pokebola" />
       </div>
       <nav>
         <ul>
           <li className="nav-link">
           <Link to={"/"} >
-            Home
+            Início
           </Link>
           </li>
           <li className="nav-link">
-          <Link to={"/pokemons"} >
-            Pokemons
+          <Link to={"/about"} >
+            Sobre 
           </Link>
-          </li>
+          </li> 
         </ul>
       </nav>
     </StyledHeader>
