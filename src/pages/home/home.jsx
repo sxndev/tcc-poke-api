@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header/Header";
-import { PokeList } from "../../components/PokeList/PokeList";
+import { PokemonSection } from "../PokemonsSection/PokemonsSection";
 import styled from "styled-components";
 import PokeballImg from "../../assets/pokeball.png";
 import "../../css/animation.css";
@@ -187,7 +187,7 @@ export const Home = () => {
     <>
       <Header />
       <MainSection />
-      <PokeList/>
+      <PokemonSection/>
     </>
   );
 };
