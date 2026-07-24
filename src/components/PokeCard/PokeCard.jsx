@@ -53,7 +53,6 @@ const StyledPokeCard = styled.div`
 
   &:hover {
     transform: translateY(-5px);
-     box-shadow: 5px 10px 2px var(--soft-bg-color);
     }
   }
 `;
