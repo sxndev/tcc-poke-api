@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getPokemonlist } from "../../services/api";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
+import { Searchbar } from "../Searchbar/Searchbar"
 import styled from "styled-components";
 
 
@@ -26,7 +27,7 @@ const StyledSection = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  padding-top: 15vh;
+  padding-top: 20vh;
 
   #title {
     color: var(--light-color);
@@ -56,6 +57,7 @@ export const PokeList = () => {
 
   return (
     <StyledSection>
+      <Searchbar/>
       <h2 id="title">Lista de Pokemons</h2>
       <StyledPokeList>
         {pokeList.map((poke) => (
