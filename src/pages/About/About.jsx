@@ -1,28 +1,28 @@
 import styled from "styled-components";
 import { Header } from "../../components/Header/Header";
 import { ProfileCard } from "../../components/ProfileCard/ProfileCard";
-import developerImg from '../../assets/developer.jpg'
+import developerImg from "../../assets/developer-2.jpg";
 
-const Container = styled.div`
+const StyledContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: start;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
   gap: 30px;
   min-height: 100vh;
   height: 100%;
-  padding: 40px;
-  margin-top: 15vh;
+  padding:60px;
+  padding-top: 20vh; 
   background: var(--bg-color);
   color: var(--light-color);
 `;
 
-const Card = styled.div`
+const StyledCard = styled.div` 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  max-width: 600px;
+  max-width: 800px;
   background: var(--bg-color);
   padding: 30px;
   border-radius: 12px;
@@ -30,33 +30,33 @@ const Card = styled.div`
   box-shadow: 0 0 20px rgba(232, 67, 59, 0.2);
 `;
 
-const Title = styled.h1`
+const StyledTitle = styled.h1`
   color: var(--light-color);
-  font-size: clamp(30px, 8vw, 100px);
+  font-size: clamp(30px, 15vw, 100px); 
   font-family: var(--font-2);
 `;
 
-const Text = styled.p`
+const StyledText = styled.p`
   line-height: 1.6;
   color: var(--light-color);
   margin-bottom: 15px;
-  font-family: clamp(50px, 7vw, 80px);
+  font-size: clamp(15px, 1.5vw, 80px);
 `;
 
-const Highlight = styled.span`
+const StyledHighlight = styled.span`
   color: var(--accent-color);
   font-weight: bold;
 `;
 
-const List = styled.ul`
+const StyledList = styled.ul`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   margin-bottom: 10px;
-  padding-left: 20px; 
+  padding-left: 20px;
   list-style: inherit;
 `;
 
-const ListItem = styled.li`
+const StyledListItem = styled.li`
   postiion: relative;
 `;
 
@@ -64,51 +64,59 @@ export const About = () => {
   return (
     <>
       <Header />
-      <Container>
-        <Title>Sobre o projeto</Title>
-        <Card>
-          <Text>
-            Este projeto é o TCC de um curso de front end feito por <br />
-            <Highlight>Nicolas Marcos da Silva</Highlight>
-          </Text>
-          <Text>
-            O projeto é uma <Highlight>Pokédex web</Highlight> desenvolvida com
+      <StyledContainer>
+
+        <StyledTitle>Sobre o projeto</StyledTitle>
+        <StyledCard>
+          <StyledText>
+            Este projeto é o TCC de um curso de <StyledHighlight>Front End</StyledHighlight> feito por <br />
+            <StyledHighlight>Nicolas Marcos da Silva</StyledHighlight>
+          </StyledText>
+
+          <StyledText>
+            O projeto é uma <StyledHighlight>Pokédex web</StyledHighlight> desenvolvida com
             React e outras Libs em conjunto consumindo dados da PokéAPI
-          </Text>
+          </StyledText>
 
-          <List>
-            <ListItem>Gerenciamento de estado</ListItem>
+          <StyledList>
+            <StyledListItem>Gerenciamento de estado</StyledListItem>
 
-            <ListItem>
-              Uso de Hooks como <Highlight> useEffect</Highlight> e
-              <Highlight> useState</Highlight>
-            </ListItem>
-            
-            <ListItem>Consumo de API</ListItem>
-            <ListItem>Componentes reutilizáveis</ListItem>
-            <ListItem>Rotas com <Highlight>React Router Dom </Highlight></ListItem>
-            <ListItem>EStilização com Styled Components</ListItem>
-          </List>
+            <StyledListItem>
+              Uso de Hooks como <StyledHighlight> useEffect</StyledHighlight> e
+              <StyledHighlight> useState</StyledHighlight>
+            </StyledListItem>
 
-          <Text>
+            <StyledListItem>Consumo de API</StyledListItem>
+            <StyledListItem>Componentes reutilizáveis</StyledListItem>
+            <StyledListItem>
+              Rotas com <StyledHighlight>React Router Dom </StyledHighlight>
+            </StyledListItem>
+            <StyledListItem>EStilização com Styled Components</StyledListItem>
+          </StyledList>
+
+          <StyledText>
             O objetivo principal é colocar os conteúdos estudados no curso em
             prática, visando a eficiência no uso de
-          </Text>
+          </StyledText>
 
-          <Text>
+          <StyledText>
             Além disso, o projeto evolui constantemente como parte do
-            aprendizado em desenvolvimento <Highlight>Front-end</Highlight>,
+            aprendizado em desenvolvimento <StyledHighlight>Front-end</StyledHighlight>,
             reforçando lógica, estrutura e boas práticas.
-          </Text>
-        </Card>
-
-      <ProfileCard
-        img={developerImg} 
-        name={'Nicolas Marcos da Silva'}
-        role={'Full Stack Developer '}
-        bio={'Apaixonado por tecnologia desde crinça'}
-      />
-      </Container>
+          </StyledText>
+        </StyledCard>
+ 
+      </StyledContainer>
+        <ProfileCard
+          img={developerImg}
+          name={"Nicolas Marcos da Silva"}
+          role={"Full Stack Developer "}
+          bio={`
+          
+          Desenvolvedor Full Stack em constante evolução e apaixonado por tecnologia, com foco em Back-end. Experiência sólida com JavaScript, TypeScript, Node.js, React, Express, PostgreSQL e Prisma, Visando práticas de Clean Code, organização e escalabilidade.
+          `}
+          
+        />
     </>
   );
 };
