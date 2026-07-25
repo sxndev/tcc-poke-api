@@ -1,6 +1,6 @@
 import "../src/css/vars.css";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/home/home";
+import { Home } from "./pages/Home/Home.jsx";
 import { GlobalStyle } from "./css/GlobalStyle";  
 import { About } from './pages/About/About.jsx'
 
