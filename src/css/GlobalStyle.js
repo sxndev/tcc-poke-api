@@ -12,7 +12,8 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width:100vw;
-  max-width:100vw;
+  max-width:100vw; 
+  height:100%;
 }
 
 img{
