@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Header } from "../../components/Header/Header";
 import { ProfileCard } from "../../components/ProfileCard/ProfileCard";
-import developerImg from "../../assets/developer-2.jpg";
+import developerImg from "../../assets/developer.jpg";
 
 const StyledContainer = styled.div`
   display: flex;
