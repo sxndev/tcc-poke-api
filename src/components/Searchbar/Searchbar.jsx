@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import { getPokemonByData } from "../../services/api";
+
 const StyledInput = styled.input`
-  width: 80%;
+  width: 100%;
   height: 40px;
   background: white;
   background-color: var(--soft-bg-color);
@@ -79,6 +81,8 @@ const StyledSearchBtn = styled.button`
 export const Searchbar = () => {
   const [search, setSearch] = useState("");
 
+  
+
   return (
     <StyledDiv>
       <StyledInput
@@ -91,7 +95,13 @@ export const Searchbar = () => {
 
       <StyledButtonContainer>
 
-        <StyledSearchBtn>Buscar</StyledSearchBtn>
+        <StyledSearchBtn
+        
+        onClick={() => {
+          getPokemonByData(search)
+        }}
+        
+        >Buscar</StyledSearchBtn>
         <StyledClearBtn id="clear-btn" onClick={() => setSearch("")}>X</StyledClearBtn>
 
       </StyledButtonContainer>
