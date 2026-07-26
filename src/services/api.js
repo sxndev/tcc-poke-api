@@ -25,7 +25,7 @@ export async function getPokemonlist(offset) {
 
     return pokemons;
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
 }
 
@@ -34,14 +34,19 @@ export async function getPokemonByData(pokeData) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokeData}`;
     const response = await fetch(url);
 
-    if (!response.ok) {
-      throw new Error("Ocorreu um erro ao buscar os dados do pokemon");
+    if(response.status === 404){
+      throw new Error("Pokemon não encontrado")
+    } else if (response.status === 500){
+      throw new Error("Ocorreu um erro no servidor")
     }
 
+
     const json = await response.json();
-    return json;
+    console.log(json); 
+    return json
 
   } catch (e) {
+    alert(e)
     console.log(e);
   }
 }
