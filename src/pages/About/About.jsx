@@ -78,6 +78,11 @@ export const About = () => {
             React e outras Libs em conjunto consumindo dados da PokéAPI
           </StyledText>
 
+          <StyledText>
+            O objetivo principal é colocar os conteúdos estudados no curso em
+            prática, visando a eficiência no uso de
+          </StyledText>
+          
           <StyledList>
             <StyledListItem>Gerenciamento de estado</StyledListItem>
 
@@ -94,10 +99,6 @@ export const About = () => {
             <StyledListItem>EStilização com Styled Components</StyledListItem>
           </StyledList>
 
-          <StyledText>
-            O objetivo principal é colocar os conteúdos estudados no curso em
-            prática, visando a eficiência no uso de
-          </StyledText>
 
           <StyledText>
             Além disso, o projeto evolui constantemente como parte do
