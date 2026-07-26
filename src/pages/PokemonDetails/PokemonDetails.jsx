@@ -2,22 +2,23 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+import { Header } from "../../components/Header/Header";
 import { getPokemonByData } from "../../services/api";
 import { BigPokeCard } from "../../components/BigPokeCard/BigPokecard";
 
 const StyledContainer = styled.section`
-  display:flex;
-  justify-content:space-between;
-  height:100vh;
-  width:100vw;
-  padding:15vh;
-  background-color:var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 25vh;
+  background-color: var(--bg-color);
 `;
 
 export const PokeDetails = () => {
-  const [pokeInfo, setPokeInfo] = useState({});
+  const [pokeInfo, setPokeInfo] = useState();
 
-  const { pokedata } = useParams();
+  const { pokeData } = useParams();
 
   useEffect(() => {
     async function getInfo(data) {
@@ -26,18 +27,20 @@ export const PokeDetails = () => {
 
       return;
     }
-    getInfo(pokedata);
-  }, [pokedata]);
+    getInfo(pokeData);
+  }, [pokeData]);
 
   return (
-    <StyledContainer>
-      <BigPokeCard
-        name={pokeInfo.name}
-        img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeInfo.id}.png`}
-        id={pokeInfo.id}
-        type={pokeInfo.types?.[0]?.type?.name}
-        
-      />
-    </StyledContainer>
+    <>
+    <Header/>
+      <StyledContainer>
+        <BigPokeCard
+          name={pokeInfo?.name}
+          img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeInfo?.id}.png`}
+          id={pokeInfo?.id}
+          type={pokeInfo?.types?.[0]?.type?.name}
+        />
+      </StyledContainer>
+    </>
   );
 };
