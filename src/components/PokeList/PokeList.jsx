@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getPokemonlist } from "../../services/api";
 import { PokeCard } from "../PokeCard/PokeCard";
 import { Button } from "../Button/Button";
-import { Searchbar } from "../Searchbar/Searchbar"
+import { Searchbar } from "../Searchbar/Searchbar";
 import styled from "styled-components";
-
 
 const StyledPokeList = styled.ul`
   display: grid;
@@ -57,21 +57,23 @@ export const PokeList = () => {
 
   return (
     <StyledSection>
-      <Searchbar/>
+      <Searchbar />
       <h2 id="title">Lista de Pokemons</h2>
       <StyledPokeList>
         {pokeList.map((poke) => (
           <li key={poke.id}>
-            <PokeCard
-              key={poke.id}
-              img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
-              name={poke.name}
-              type={poke.types[0].type.name}
-              id={poke.id}
-            />
+            <Link to={`/pokemon/${poke.name}`}>
+              <PokeCard
+                key={poke.id}
+                img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${poke.id}.png`}
+                name={poke.name}
+                type={poke.types[0].type.name}
+                id={poke.id}
+              />
+            </Link>
           </li>
         ))}
-        </StyledPokeList>
+      </StyledPokeList>
       <Button text={"Buscar mais Pokemons"} onClick={getMorePokemons} />
     </StyledSection>
   );
