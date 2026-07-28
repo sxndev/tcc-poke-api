@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { getPokemonByData } from "../../services/api";
 
@@ -17,16 +18,16 @@ const StyledInput = styled.input`
   color: white;
   font-size: 20px;
   font-family: var(--font-3);
-  
+
   &::placeholder {
     color: white;
   }
 `;
 
 const StyledButtonContainer = styled.div`
-  display:flex;
-  align-items:center;
-  gap:10px;  
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 const StyledClearBtn = styled.button`
@@ -41,21 +42,23 @@ const StyledClearBtn = styled.button`
   border-radius: 100%;
   font-family: var(--font-3);
   background-color: var(--accent-color);
-  
-  transition:background-color ease 0.7s, color ease 0.7s;
+
+  transition:
+    background-color ease 0.7s,
+    color ease 0.7s;
 
   &:hover {
-    background-color:var(--light-color);
-    color:var(--accent-color);
+    background-color: var(--light-color);
+    color: var(--accent-color);
   }
-  `;
+`;
 
 const StyledDiv = styled.div`
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap:10px; 
+  gap: 10px;
 `;
 
 const StyledSearchBtn = styled.button`
@@ -67,21 +70,30 @@ const StyledSearchBtn = styled.button`
   height: 25px;
   padding: 20px;
   font-size: 20px;
-  border-radius: 10px; 
+  border-radius: 10px;
   font-family: var(--font-3);
   background-color: var(--accent-color);
-  transition:background-color ease 0.7s, color ease 0.7s;
+  transition:
+    background-color ease 0.7s,
+    color ease 0.7s;
 
   &:hover {
-    background-color:var(--light-color);
-    color:var(--accent-color);
+    background-color: var(--light-color);
+    color: var(--accent-color);
   }
-  `;
+`;
 
 export const Searchbar = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
-  
+  async function handleSearch(nome) {
+    const pokemon = await getPokemonByData(nome);
+
+    if (pokemon) {
+      navigate(`/pokemon/${pokemon.name}`);
+    }
+  }
 
   return (
     <StyledDiv>
@@ -90,20 +102,20 @@ export const Searchbar = () => {
         type="text"
         placeholder="Buscar um pokemon"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value.toLocaleLowerCase())}
       />
 
       <StyledButtonContainer>
-
         <StyledSearchBtn
-        
-        onClick={() => {
-          getPokemonByData(search)
-        }}
-        
-        >Buscar</StyledSearchBtn>
-        <StyledClearBtn id="clear-btn" onClick={() => setSearch("")}>X</StyledClearBtn>
-
+          onClick={() => {
+            handleSearch(search);
+          }}
+        >
+          Buscar
+        </StyledSearchBtn>
+        <StyledClearBtn id="clear-btn" onClick={() => setSearch("")}>
+          X
+        </StyledClearBtn>
       </StyledButtonContainer>
     </StyledDiv>
   );
