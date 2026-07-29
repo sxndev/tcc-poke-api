@@ -1,16 +1,59 @@
-# React + Vite
+# PokeWeb
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma Pokédex online desenvolvida com **React**, que permite pesquisar Pokémon por nome ou número da Pokédex utilizando a **PokéAPI**. O projeto foi criado com o objetivo de praticar conceitos de desenvolvimento frontend, consumo de APIs REST e enfatizar os conteúdos que eu aprendi durante o curso.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologias utilizadas
 
-## React Compiler
+* React + Vite
+* React Router DOM
+* Hooks useEffect & useState
+* Context API
+* Styled Components
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+##  Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*  Buscar Pokémon pelo nome ou ID.
+*  Exibir informações detalhadas do Pokémon.
+*  Visualizar habilidades.
+*  Listar movimentos.
+*  Interface responsiva para diferentes tamanhos de tela.
+
+--
+
+## API utilizada
+
+Este projeto consome dados da **PokéAPI**, uma API pública que disponibiliza informações sobre Pokémon.
+
+https://pokeapi.co/
+
+---
+
+## Objetivos do projeto
+
+Este projeto foi desenvolvido para aprimorar conhecimentos em:
+
+* Componentização com React.
+* Consumo de APIs REST.
+* Manipulação de estados.
+* Organização de projetos frontend.
+* Estilização utilizando Styled Components.
+* Tratamento de erros em requisições HTTP.
+
+---
+
+## Melhorias futuras
+
+* Histórico de pesquisas.
+* Filtrar pokemon por tipo.
+* Tema claro/escuro.
+* Animações de transição e ao rolar a tela.
+
+## Autor
+
+Desenvolvido por **Nicolas Marcos da Silva**.
+
+Caso tenha sugestões ou encontre algum problema, fique à vontade para abrir uma *Issue* ou enviar um *Pull Request*.
