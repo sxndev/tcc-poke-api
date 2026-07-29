@@ -31,8 +31,7 @@ const StyledHeader = styled.header`
   }
 
   img {
-    min-width: 20px;
-    width: 5vw;
+    height:auto; 
     max-width: 40px;
     object-fit: contain;
   }

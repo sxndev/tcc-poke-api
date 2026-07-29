@@ -53,10 +53,11 @@ const StyledBio = styled.p`
   font-size: clamp(15px, 1.5vw, 20px);
 `;
 
-export const ProfileCard = ({ name, img, role, bio }) => {
+export const ProfileCard = ({ name, img, alt, role, bio }) => {
   return (
     <StyledCardContainer>
-      <StyledImg src={img} />
+      
+      <StyledImg src={img} alt={alt} />
 
       <StyledProfileInfo>
         <StyledName>{name}</StyledName>

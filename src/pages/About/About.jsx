@@ -44,7 +44,9 @@ const StyledText = styled.p`
 `;
 
 const StyledHighlight = styled.span`
-  color: var(--accent-color);
+  background-color: var(--accent-color);
+  color:var(--light-color); 
+  padding:0px 5px;
   font-weight: bold;
 `;
 
@@ -110,6 +112,7 @@ export const About = () => {
       </StyledContainer>
         <ProfileCard
           img={developerImg}
+          alt={'Imagem do desenvolvedor'}
           name={"Nicolas Marcos da Silva"}
           role={"Full Stack Developer "}
           bio={`
