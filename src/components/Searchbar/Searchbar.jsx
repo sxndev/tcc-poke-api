@@ -93,6 +93,8 @@ export const Searchbar = () => {
     if (pokemon) {
       navigate(`/pokemon/${pokemon.name}`);
     }
+
+    setSearch("");
   }
 
   return (
@@ -103,6 +105,11 @@ export const Searchbar = () => {
         placeholder="Buscar um pokemon"
         value={search}
         onChange={(e) => setSearch(e.target.value.toLocaleLowerCase())}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSearch(search);
+          }
+        }}
       />
 
       <StyledButtonContainer>

@@ -41,9 +41,8 @@ export async function getPokemonByData(pokeData) {
     }
 
     const pokemon = await response.json();
-    console.log(pokemon.name);
     return pokemon;
-    } catch (e) {
+  } catch (e) {
     alert(e);
     console.log(e);
   }
