@@ -23,6 +23,7 @@ const StyledList = styled.ul`
   max-height: 100%;
   padding-top: 20px;
   overflow-y: scroll;
+  width: 100%;
 
   &::-webkit-scrollbar {
     width: 7px;
@@ -40,6 +41,11 @@ const StyledList = styled.ul`
   }
 `;
 
+const StyledListName = styled.h2`
+  font-family: var(--font-3);
+  font-size: clamp(15px, 4vw, 30px);
+`;
+
 const StyledListItem = styled.li`
   text-align: center;
   color: white;
@@ -48,19 +54,17 @@ const StyledListItem = styled.li`
   padding: 1px 30px;
   font-family: var(--font-2);
   font-size: clamp(20px, 1.5vw, 50px);
-`;
-const StyledListName = styled.h2`
-  font-family: var(--font-3);
-  font-size: clamp(15px, 2.5vw, 40px);
+  background-color:${({type}) => `var(--${type}-type)`}; 
+  color:var(--light-color);
 `;
 
-export const PokeMoveList = ({ list, propertyName, listName }) => {
+export const PokeMoveList = ({ list, propertyName, listName, type }) => {
   return (
     <StyledContainer>
       <StyledListName>{listName}:</StyledListName>
       <StyledList>
         {list?.map((item) => (
-          <StyledListItem key={item.id}>
+          <StyledListItem key={item.id} type={type}>
             {item[propertyName].name}
           </StyledListItem>
         ))}

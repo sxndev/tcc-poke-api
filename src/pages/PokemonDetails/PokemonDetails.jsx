@@ -8,13 +8,14 @@ import { BigPokeCard } from "../../components/BigPokeCard/BigPokecard";
 import { PokeMoveList } from "../../components/PokeMoveList/PokeMoveList";
 
 const StyledContainer = styled.section`
-  display:grid;
-  grid-template-columns: repeat(2, 325px);
-  gap:50px;    
-  place-content:center;
-  justify-items:center;
-  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 50px;
+  min-height: 100vh;
+  height: 100%;
   width: 100vw;
+  padding-top: 20vh;
   background-color: var(--bg-color);
 `;
 
@@ -42,12 +43,14 @@ export const PokeDetails = () => {
           img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeInfo?.id}.png`}
           id={pokeInfo?.id}
           type={pokeInfo?.types?.[0]?.type?.name}
+          abilities={pokeInfo?.abilities}
         />
 
         <PokeMoveList
           list={pokeInfo?.moves}
           propertyName={"move"}
           listName={"Movimentos"}
+            type={pokeInfo?.types?.[0]?.type?.name}
         />
       </StyledContainer>
     </>
